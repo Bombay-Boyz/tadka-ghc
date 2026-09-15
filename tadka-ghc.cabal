@@ -27,6 +27,7 @@ common warnings
         -Wpartial-fields
         -Widentities
         -Wredundant-constraints
+        -Wunused-imports
         -Wmissing-deriving-strategies
         -Wprepositive-qualified-module
         -Wunused-packages
@@ -40,6 +41,7 @@ library
         src
     build-depends:
         base >= 4.20 && < 5
+        , tadka == 2.0.0.0
     default-extensions:
         NoImplicitPrelude
     default-language: Haskell2010
@@ -53,6 +55,10 @@ test-suite tadka-ghc-test
     build-depends:
         base >= 4.20 && < 5
         , tadka-ghc
+        , tadka == 2.0.0.0
+        , tadka:interop-ghc
+        , text >= 2.0 && < 2.3
+        , ghc >= 9.6 && < 9.15
     default-extensions:
         NoImplicitPrelude
     default-language: Haskell2010
