@@ -1,0 +1,62 @@
+cabal-version: 3.0
+name:          tadka-ghc
+version:       0.1.0.0
+synopsis:      GHC structured diagnostics adapter for Tadka
+description:   Pure and total translation of GHC structured diagnostics into Tadka.
+category:      Development
+homepage:      https://github.com/Bombay-Boyz/tadka-ghc
+bug-reports:   https://github.com/Bombay-Boyz/tadka-ghc/issues
+author:        Bombay Boyz
+maintainer:    Bombay Boyz
+license:       MPL-2.0
+build-type:    Simple
+extra-source-files:
+    README.md
+
+common warnings
+    ghc-options:
+        -Wall
+        -Wcompat
+        -Wincomplete-uni-patterns
+        -Wincomplete-record-updates
+        -Wmissing-export-lists
+        -Wmissing-import-lists
+        -Wmissing-signatures
+        -Wmissing-local-signatures
+        -Wname-shadowing
+        -Wpartial-fields
+        -Widentities
+        -Wredundant-constraints
+        -Wmissing-deriving-strategies
+        -Wprepositive-qualified-module
+        -Wunused-packages
+    default-language: Haskell2010
+
+library
+    import: warnings
+    exposed-modules:
+        Tadka.GHC
+    hs-source-dirs:
+        src
+    build-depends:
+        base >= 4.20 && < 5
+    default-extensions:
+        NoImplicitPrelude
+    default-language: Haskell2010
+
+test-suite tadka-ghc-test
+    import: warnings
+    type: exitcode-stdio-1.0
+    main-is: Main.hs
+    hs-source-dirs:
+        test
+    build-depends:
+        base >= 4.20 && < 5
+        , tadka-ghc
+    default-extensions:
+        NoImplicitPrelude
+    default-language: Haskell2010
+
+source-repository head
+    type: git
+    location: https://github.com/Bombay-Boyz/tadka-ghc.git

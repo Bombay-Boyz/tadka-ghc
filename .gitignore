@@ -1,0 +1,23 @@
+# Cabal / GHC build artifacts
+dist-newstyle/
+.cabal-sandbox/
+*.hi
+*.o
+*.dyn_hi
+*.dyn_o
+
+# GHCi / IDE environment files
+.ghc.environment.*
+.hie/
+
+# Local Cabal configuration
+cabal.project.local
+
+# Haskell tooling
+.stack-work/
+
+# Editor / OS files
+*.swp
+*.swo
+*~
+.DS_Store
